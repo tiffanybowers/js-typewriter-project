@@ -1,10 +1,10 @@
 const textDisplay = document.getElementById('text');
-console.log(textDisplay);
 
 let currentPhrase = [];
 let i = 0;
 let j = 0;
 let isDeleting = false;
+let isEnd = false;
 
 const phrases = [
     'Hello, my name is Tiffany.',
@@ -15,16 +15,39 @@ const phrases = [
 function loop() {
     textDisplay.innerHTML = phrases[0];
 
-
     if(i < phrases.length) {
         if(!isDeleting && j <= phrases[i].length) {
             currentPhrase.push(phrases[i][j]);
-            console.log(currentPhrase);
             j++;
+            textDisplay.innerHTML = currentPhrase.join(''); //join array together minus there commas
         }
-    }
 
-    setTimeout(loop, 2000);
+        if(isDeleting == true && j < phrases[i].length) {
+            currentPhrase.pop();
+            j--;
+            textDisplay.innerHTML = currentPhrase.join('');
+        }
+
+        if(j == phrases[i].length) {
+            isEnd = true;
+            isDeleting = true;
+        }
+
+        if(isDeleting && j === 0) {
+            currentPhrase = [];
+            isDeleting = false;
+            i++;
+            if(i == phrases[i].length) {
+                i = 0;
+            }
+        }
+
+    }
+    const spedUp = Math.random() * 80;
+    const normalSpeed = Math.random() * 300;
+    const time = isEnd ? 2000 : isDeleting ? spedUp : normalSpeed;
+
+    setTimeout(loop, time);
 }
 
 loop();
