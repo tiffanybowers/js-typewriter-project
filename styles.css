@@ -3,10 +3,10 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 98vh;
+    height: 80vh;
     color: #fff;
     background-color: darkslategray;
-    margin-top: 200px;
+    margin: 8px 10px;
 }
 
 #text {
