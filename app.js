@@ -20,10 +20,11 @@ function loop() {
         if(!isDeleting && j <= phrases[i].length) {
             currentPhrase.push(phrases[i][j]);
             console.log(currentPhrase);
+            j++;
         }
     }
 
-    setTimeout(loop, 2000) //2seconds
+    setTimeout(loop, 2000);
 }
 
 loop();
