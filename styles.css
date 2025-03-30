@@ -1,0 +1,13 @@
+body {
+    background-color: darkslategray;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+
+#text {
+    border-right: 1px solid #fff;
+    height: 35px;
+}
