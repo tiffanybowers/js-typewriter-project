@@ -13,7 +13,7 @@ A lightweight, customizable vanilla JavaScript typewriter effect that simulates 
 
 ## Live Demo
 
-Check out the [live demo](https://your-portfolio-url.com/typewriter-demo/) to see the typewriter effect in action.
+Check out the [live demo](https://tiffanybowers.github.io/js-typewriter-project) to see the typewriter effect in action.
 
 ## Browser Support
 
