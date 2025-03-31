@@ -19,7 +19,6 @@ let phrases = [
  * This function runs repeatedly using setTimeout to simulate typing
  */
 function loop() {
-    textDisplay.innerHTML = phrases[0];
 
     if(i < phrases.length) {
         // TYPING MODE: If we're not deleting and haven't reached the end of the current phrase
@@ -33,14 +32,14 @@ function loop() {
         }
 
         // DELETING MODE: If we're deleting and there are still characters to delete
-        if(isDeleting == true && j < phrases[i].length) {
+        if(isDeleting == true && j > 0) {
             // Remove the last character from our currentPhrase array
             currentPhrase.pop();
             j--;
             textDisplay.innerHTML = currentPhrase.join('');
         }
 
-        if(j == phrases[i].length) {
+        if(j === phrases[i].length) {
             isEnd = true; // Indicates we've reached the end (used for timing)
             isDeleting = true; // Switch to deletion mode
         }
@@ -60,19 +59,19 @@ function loop() {
     }
 
     // TIMING CONTROL
-    // const spedUp = Math.random() * 80;
-    // const normalSpeed = Math.random() * 300;
+    const spedUp = Math.random() * 80;
+    const normalSpeed = Math.random() * 300;
 
-    // // Choose the appropriate timing:
-    // // - If at the end of a phrase, pause for 2 seconds
-    // // - If deleting, use faster speed
-    // // - Otherwise use normal typing speed
-    // const time = isEnd ? 2000 : isDeleting ? spedUp : normalSpeed;
+    // Choose the appropriate timing:
+    // - If at the end of a phrase, pause for 2 seconds
+    // - If deleting, use faster speed
+    // - Otherwise use normal typing speed
+    const time = isEnd ? 2000 : isDeleting ? spedUp : normalSpeed;
 
-    // // Reset the "end" flag after we've used it for timing
-    // if (isEnd) isEnd = false;
+    // Reset the "end" flag after we've used it for timing
+    if (isEnd) isEnd = false;
 
-    setTimeout(loop, 2000);
+    setTimeout(loop, time);
 }
 
 loop();
