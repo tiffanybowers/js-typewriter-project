@@ -52,7 +52,7 @@ function loop() {
             isDeleting = false;
             i++;
             // If we've gone through all phrases, loop back to the first one
-            if(i == phrases.length) {
+            if(i === phrases.length) {
                 i = 0;
             }
         }
@@ -60,19 +60,19 @@ function loop() {
     }
 
     // TIMING CONTROL
-    const spedUp = Math.random() * 80;
-    const normalSpeed = Math.random() * 300;
+    // const spedUp = Math.random() * 80;
+    // const normalSpeed = Math.random() * 300;
 
-    // Choose the appropriate timing:
-    // - If at the end of a phrase, pause for 2 seconds
-    // - If deleting, use faster speed
-    // - Otherwise use normal typing speed
-    const time = isEnd ? 2000 : isDeleting ? spedUp : normalSpeed;
+    // // Choose the appropriate timing:
+    // // - If at the end of a phrase, pause for 2 seconds
+    // // - If deleting, use faster speed
+    // // - Otherwise use normal typing speed
+    // const time = isEnd ? 2000 : isDeleting ? spedUp : normalSpeed;
 
-    // Reset the "end" flag after we've used it for timing
-    if (isEnd) isEnd = false;
+    // // Reset the "end" flag after we've used it for timing
+    // if (isEnd) isEnd = false;
 
-    setTimeout(loop, time);
+    setTimeout(loop, 2000);
 }
 
 loop();
